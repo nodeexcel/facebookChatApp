@@ -11,21 +11,20 @@ module.exports = function(defaultFuncs, api, ctx) {
 
     
 
-    if (utils.getType(adminIDs) !== "Array") {
-      throw {error: "changeAdminStatus: adminIDs must be an array or string"};
-    }
+    
 
     if (utils.getType(adminIDs) === "String") {
       adminIDs = [adminIDs];
+    }
+    if (utils.getType(adminIDs) !== "Array") {
+      throw {error: "changeAdminStatus: adminIDs must be an array or string"};
     }
 
     if (utils.getType(adminStatus) !== "Boolean") {
       throw {error: "changeAdminStatus: adminStatus must be a string"};
     }
 
-    if (!callback) {
-      callback = () => {};
-    }
+   
 
     if (utils.getType(callback) !== "Function" && utils.getType(callback) !== "AsyncFunction") {
       throw {error: "changeAdminStatus: callback is not a function"};
@@ -34,6 +33,10 @@ module.exports = function(defaultFuncs, api, ctx) {
     let form = {
       "thread_fbid": threadID,
     };
+    
+    if (!callback) {
+      callback = () => {};
+    }
 
     let i = 0;
     for (let u of adminIDs) {
