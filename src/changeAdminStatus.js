@@ -9,10 +9,6 @@ module.exports = function(defaultFuncs, api, ctx) {
       throw {error: "changeAdminStatus: threadID must be a string"};
     }
 
-    
-
-    
-
     if (utils.getType(adminIDs) === "String") {
       adminIDs = [adminIDs];
     }
