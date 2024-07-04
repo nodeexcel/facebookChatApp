@@ -16,22 +16,24 @@ module.exports = function(defaultFuncs, api, ctx) {
       options = {}; // Initial poll options are optional
     }
 
+     // Set fields for options (and whether they are selected initially by the posting user)
+     var ind = 0;
+     for (var opt in options) {
+       if (options.hasOwnProperty(opt)) {
+         form["option_text_array[" + ind + "]"] = opt;
+         form["option_is_selected_array[" + ind + "]"] = options[opt]
+           ? "1"
+           : "0";
+         ind++;
+       }
+     }
+
     var form = {
       target_id: threadID,
       question_text: title
     };
 
-    // Set fields for options (and whether they are selected initially by the posting user)
-    var ind = 0;
-    for (var opt in options) {
-      if (options.hasOwnProperty(opt)) {
-        form["option_text_array[" + ind + "]"] = opt;
-        form["option_is_selected_array[" + ind + "]"] = options[opt]
-          ? "1"
-          : "0";
-        ind++;
-      }
-    }
+   
 
     defaultFuncs
       .post(

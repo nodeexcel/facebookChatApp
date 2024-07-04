@@ -12,12 +12,12 @@ module.exports = function(defaultFuncs, api, ctx) {
     var form = {
       attachment_id: attachmentID
     };
-
+    
+    var timestamp = Math.floor(Date.now() / 1000);
     if (utils.getType(userOrUsers) !== "Array") {
       userOrUsers = [userOrUsers];
     }
 
-    var timestamp = Math.floor(Date.now() / 1000);
 
     for (var i = 0; i < userOrUsers.length; i++) {
       //That's good, the key of the array is really timestmap in seconds + index
