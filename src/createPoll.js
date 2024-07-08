@@ -1,7 +1,7 @@
 "use strict";
 
-var log = require("npmlog");
 var utils = require("../utils");
+var log = require("npmlog");
 
 module.exports = function (defaultFuncs, api, ctx) {
   return function createPoll(title, threadID, options, callback) {
