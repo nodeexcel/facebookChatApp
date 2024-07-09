@@ -20,8 +20,6 @@ module.exports = function(defaultFuncs, api, ctx) {
       throw {error: "changeAdminStatus: adminStatus must be a string"};
     }
 
-   
-
     if (utils.getType(callback) !== "Function" && utils.getType(callback) !== "AsyncFunction") {
       throw {error: "changeAdminStatus: callback is not a function"};
     }
