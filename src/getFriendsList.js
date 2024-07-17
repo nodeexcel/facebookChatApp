@@ -24,11 +24,11 @@ function formatData(obj) {
   return Object.keys(obj).map(function(key) {
     var user = obj[key];
     return {
-      firstName: user.firstName,
       alternateName: user.alternateName,
+      firstName: user.firstName,
       gender: GENDERS[user.gender],
-      userID: utils.formatID(user.id.toString()),
       isFriend: user.is_friend != null && user.is_friend ? true : false,
+      userID: utils.formatID(user.id.toString()),
       fullName: user.name,
       profilePicture: user.thumbSrc,
       type: user.type,
