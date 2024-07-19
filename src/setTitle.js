@@ -7,8 +7,8 @@ module.exports = function(defaultFuncs, api, ctx) {
   return function setTitle(newTitle, threadID, callback) {
     if (
       !callback &&
-      (utils.getType(threadID) === "Function" ||
-        utils.getType(threadID) === "AsyncFunction")
+      (utils.getType(threadID) === "AsyncFunction"||
+        utils.getType(threadID) === "Function" )
     ) {
       throw { error: "please pass a threadID as a second argument." };
     }
